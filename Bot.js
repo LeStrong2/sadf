@@ -1,13 +1,13 @@
 ﻿const Discord = require('discord.js');
 const client = new Discord.Client();
-var prefix = "2"
-var adminprefix = '2'
+var prefix = "#"
+var adminprefix = '#'
 
 
 //bc
 
 client.on("message", message => {
-    if (message.content.startsWith("2obc")) {
+    if (message.content.startsWith("#bc")) {
                  if (!message.member.hasPermission("ADMINISTRATOR"))  return;
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' ');
@@ -19,25 +19,6 @@ client.on("message", message => {
   };
   });
 
-
-//bc online
-
-
-  var prefix = "2";
-
-  client.on("message", message => {
-  
-              if (message.content.startsWith(prefix + "bc")) {
-                           if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-    let args = message.content.split(" ").slice(1);
-    var argresult = args.join(' '); 
-    message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
-   m.send(`${argresult}\n ${m}`);
-  })
-   message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` :mailbox:  عدد المستلمين `); 
-   message.delete(); 
-  };     
-  });
 
 client.on('message', message => {
     var  user = message.mentions.users.first() || message.author;
@@ -55,19 +36,18 @@ client.on('ready',  () => {
 
 
   client.on('message', msg => {
-    if(msg.content === '2help')
+    if(msg.content === '#help')
     msg.reply('Check Your DM :white_check_mark:')
   });
   
   
   client.on("message", message => {
-    if (message.content === "2help") {
+    if (message.content === "#help") {
      const embed = new Discord.RichEmbed() 
          .setColor("#00FF00")
          .setThumbnail(message.author.avatarURL)
          .setDescription(`**Help|هيلب
-       2obc | لأرسال برود كاست للكل
-       2bc  |  لأرسال برود كاست للأونلاين
+       #bc  |  لأرسال برود كاست للكل
        ** `)
    message.author.sendEmbed(embed)
    
